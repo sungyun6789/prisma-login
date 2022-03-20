@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:11.8.1"],\
             ["@emotion/styled", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:11.8.1"],\
             ["@next/eslint-plugin-next", "npm:12.1.0"],\
+            ["@prisma/client", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:3.11.0"],\
             ["@types/node", "npm:17.0.12"],\
             ["@types/react", "npm:17.0.38"],\
             ["@types/react-dom", "npm:17.0.11"],\
@@ -53,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:12.3.4"],\
             ["next", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:12.0.8"],\
             ["prettier", "npm:2.5.1"],\
+            ["prisma", "npm:3.11.0"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:17.0.2"],\
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367"]\
@@ -616,6 +618,47 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nodelib/fs.walk", "npm:1.2.8"],\
             ["@nodelib/fs.scandir", "npm:2.1.5"],\
             ["fastq", "npm:1.13.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@prisma/client", [\
+        ["npm:3.11.0", {\
+          "packageLocation": "./.yarn/unplugged/@prisma-client-virtual-2bf4f3b8ce/node_modules/@prisma/client/",\
+          "packageDependencies": [\
+            ["@prisma/client", "npm:3.11.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:3.11.0", {\
+          "packageLocation": "./.yarn/unplugged/@prisma-client-virtual-2bf4f3b8ce/node_modules/@prisma/client/",\
+          "packageDependencies": [\
+            ["@prisma/client", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:3.11.0"],\
+            ["@prisma/engines-version", "npm:3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b"],\
+            ["@types/prisma", null],\
+            ["prisma", "npm:3.11.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/prisma",\
+            "prisma"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@prisma/engines", [\
+        ["npm:3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b", {\
+          "packageLocation": "./.yarn/unplugged/@prisma-engines-npm-3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b-e90add985c/node_modules/@prisma/engines/",\
+          "packageDependencies": [\
+            ["@prisma/engines", "npm:3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@prisma/engines-version", [\
+        ["npm:3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b", {\
+          "packageLocation": "./.yarn/cache/@prisma-engines-version-npm-3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b-07be32c9d2-c3200d2000.zip/node_modules/@prisma/engines-version/",\
+          "packageDependencies": [\
+            ["@prisma/engines-version", "npm:3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1238,6 +1281,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:11.8.1"],\
             ["@emotion/styled", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:11.8.1"],\
             ["@next/eslint-plugin-next", "npm:12.1.0"],\
+            ["@prisma/client", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:3.11.0"],\
             ["@types/node", "npm:17.0.12"],\
             ["@types/react", "npm:17.0.38"],\
             ["@types/react-dom", "npm:17.0.11"],\
@@ -1255,6 +1299,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:12.3.4"],\
             ["next", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:12.0.8"],\
             ["prettier", "npm:2.5.1"],\
+            ["prisma", "npm:3.11.0"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:bcccfbc3736221125a9ec5ea8038c3024d2c5e5c85bcc354af7db3965dc0db3eff548b6eb0f3594f3becb64e74eb1f7e8eda79bcf9a52e7a6a35e9ed22be44ee#npm:17.0.2"],\
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367"]\
@@ -3618,6 +3663,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["prettier-linter-helpers", "npm:1.0.0"],\
             ["fast-diff", "npm:1.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["prisma", [\
+        ["npm:3.11.0", {\
+          "packageLocation": "./.yarn/unplugged/prisma-npm-3.11.0-9503d10b10/node_modules/prisma/",\
+          "packageDependencies": [\
+            ["prisma", "npm:3.11.0"],\
+            ["@prisma/engines", "npm:3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b"]\
           ],\
           "linkType": "HARD"\
         }]\
