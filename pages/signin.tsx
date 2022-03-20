@@ -1,10 +1,15 @@
 import { FormEvent } from 'react';
 
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
 
 import { ButtonWrapper, Input, Main } from '../components';
 
 const SignIn: NextPage = () => {
+  const router = useRouter();
+
+  const signup = () => router.push('/signup');
+
   const handleSubmut = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
@@ -17,7 +22,7 @@ const SignIn: NextPage = () => {
         <ButtonWrapper>
           <button type="submit">로그인</button>
         </ButtonWrapper>
-        <span>회원가입</span>
+        <span onClick={signup}>회원가입</span>
       </form>
     </Main>
   );
