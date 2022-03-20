@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { ButtonWrapper, Input, Main } from '../components';
 
 const SignIn: NextPage = () => {
-  const [id, setId] = useState<string>();
+  const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [passwordConfirm, setPasswordConfirm] = useState<string>();
   const router = useRouter();
@@ -15,13 +15,13 @@ const SignIn: NextPage = () => {
 
   const handleSubmut = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ id, password, passwordConfirm });
+    console.log({ email, password, passwordConfirm });
   };
 
   return (
     <Main>
       <form onSubmit={handleSubmut}>
-        <Input type="text" onChange={(e) => setId(e.target.value)} placeholder="ID" />
+        <Input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
         <Input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
         <Input type="password" onChange={(e) => setPasswordConfirm(e.target.value)} placeholder="Password Confirm" />
         <ButtonWrapper>
