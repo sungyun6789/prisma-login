@@ -15,7 +15,11 @@ const SignIn: NextPage = () => {
 
   const handleSubmut = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ email, password, passwordConfirm });
+    if (password === passwordConfirm) {
+      console.log({ email, password, passwordConfirm });
+    } else {
+      alert('비밀번호가 일치하지 않습니다.');
+    }
   };
 
   return (
