@@ -3,6 +3,8 @@
 .env
 out
 
+node_modules
+
 # yarn berry
 .yarn/*
 !.yarn/cache
