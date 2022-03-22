@@ -13,10 +13,18 @@ const SignIn: NextPage = () => {
 
   const signin = () => router.push('/signin');
 
-  const handleSubmut = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmut = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password === passwordConfirm) {
-      console.log({ email, password, passwordConfirm });
+      if (email && password) {
+        await fetch('/api/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+        });
+      } else {
+        alert('잘못 입력된 값이 있습니다.');
+      }
     } else {
       alert('비밀번호가 일치하지 않습니다.');
     }
