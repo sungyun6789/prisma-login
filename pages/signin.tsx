@@ -5,6 +5,11 @@ import { useRouter } from 'next/router';
 
 import { ButtonWrapper, Input, Main } from '../components';
 
+interface ResponseModel {
+  success: boolean;
+  reason?: string;
+}
+
 const SignIn: NextPage = () => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
@@ -12,9 +17,22 @@ const SignIn: NextPage = () => {
 
   const signup = () => router.push('/signup');
 
-  const handleSubmut = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmut = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ email, password });
+    if (email && password) {
+      const { success, reason }: ResponseModel = await fetch('/api/signin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      }).then((response) => response.json());
+      if (!success) {
+        alert(reason);
+      } else {
+        alert('로그인에 성공했습니다.');
+      }
+    } else {
+      alert('잘못된 값이 있습니다.');
+    }
   };
 
   return (
