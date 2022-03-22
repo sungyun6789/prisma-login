@@ -5,6 +5,11 @@ import { useRouter } from 'next/router';
 
 import { ButtonWrapper, Input, Main } from '../components';
 
+interface ResponseModel {
+  success: boolean;
+  reason?: string;
+}
+
 const SignIn: NextPage = () => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
@@ -17,11 +22,17 @@ const SignIn: NextPage = () => {
     e.preventDefault();
     if (password === passwordConfirm) {
       if (email && password) {
-        await fetch('/api/signup', {
+        const { success, reason }: ResponseModel = await fetch('/api/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
-        });
+        }).then((response) => response.json());
+        if (success) {
+          alert('가입이 완료되었습니다.');
+          router.push('/signin');
+        } else {
+          alert(reason);
+        }
       } else {
         alert('잘못 입력된 값이 있습니다.');
       }
