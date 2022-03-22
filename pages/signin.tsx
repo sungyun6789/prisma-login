@@ -1,18 +1,22 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
 import { ButtonWrapper, Input, Main } from '../components';
 
+import { UserContext, UserModel } from './_app';
+
 interface ResponseModel {
   success: boolean;
   reason?: string;
+  user: UserModel;
 }
 
 const SignIn: NextPage = () => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const { setUser } = useContext(UserContext);
   const router = useRouter();
 
   const signup = () => router.push('/signup');
@@ -20,7 +24,7 @@ const SignIn: NextPage = () => {
   const handleSubmut = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email && password) {
-      const { success, reason }: ResponseModel = await fetch('/api/signin', {
+      const { success, reason, user }: ResponseModel = await fetch('/api/signin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -29,6 +33,8 @@ const SignIn: NextPage = () => {
         alert(reason);
       } else {
         alert('로그인에 성공했습니다.');
+        setUser(user);
+        router.push('/');
       }
     } else {
       alert('잘못된 값이 있습니다.');
