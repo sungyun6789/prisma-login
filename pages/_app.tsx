@@ -11,7 +11,7 @@ export interface UserModel {
 
 interface ContextModel {
   user?: UserModel;
-  setUser: (props: UserModel) => void;
+  setUser: (props?: UserModel) => void;
 }
 
 export const UserContext = createContext<ContextModel>({ user: undefined, setUser: () => undefined });

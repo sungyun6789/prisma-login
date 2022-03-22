@@ -7,18 +7,18 @@ import { useRouter } from 'next/router';
 import { UserContext } from './_app';
 
 const Index: NextPage = () => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const router = useRouter();
 
   useEffect(() => {
     user ?? router.push('/signin');
-  }, []);
+  }, [user]);
 
   return (
     <Main>
       <div>
         <h1>안녕하세요. {user?.email}</h1>
-        <LogoutButton>로그아웃</LogoutButton>
+        <LogoutButton onClick={() => setUser(undefined)}>로그아웃</LogoutButton>
       </div>
     </Main>
   );
