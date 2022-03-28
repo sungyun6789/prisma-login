@@ -1,24 +1,22 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { useRouter } from 'next/router';
 
 import { UserContext } from './_app';
 
 const Index: NextPage = () => {
   const { user, setUser } = useContext(UserContext);
-  const router = useRouter();
-
-  useEffect(() => {
-    user ?? router.push('/signin');
-  }, [user]);
+  const logout = async () => {
+    await fetch('/api/signout', { method: 'POST' });
+    setUser(undefined);
+  };
 
   return (
     <Main>
       <div>
         <h1>안녕하세요. {user?.email}</h1>
-        <LogoutButton onClick={() => setUser(undefined)}>로그아웃</LogoutButton>
+        <LogoutButton onClick={logout}>로그아웃</LogoutButton>
       </div>
     </Main>
   );
