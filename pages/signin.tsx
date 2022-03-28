@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useState } from 'react';
+import { FormEvent, useContext, useEffect, useState } from 'react';
 
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
@@ -20,6 +20,15 @@ const SignIn: NextPage = () => {
   const router = useRouter();
 
   const signup = () => router.push('/signup');
+
+  const getUser = async () => {
+    const { success, user } = await fetch('/api/auth', { method: 'GET' }).then((response) => response.json());
+    success && user ? setUser(user) : router.push('/signin');
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   const handleSubmut = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

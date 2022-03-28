@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import prisma from '../../utils/prisma';
+import { withSession } from '../../utils/withSession';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { email, password } = req.body;
@@ -25,4 +26,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-export default handler;
+export default withSession(handler);
