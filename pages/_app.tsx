@@ -1,6 +1,7 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 import { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
 
 import GlobalStyle from '../styles/global.style';
 
@@ -18,6 +19,11 @@ export const UserContext = createContext<ContextModel>({ user: undefined, setUse
 
 const app = ({ Component, pageProps }: AppProps) => {
   const [userInfo, setUserInfo] = useState<UserModel>();
+  const router = useRouter();
+
+  useEffect(() => {
+    userInfo ? router.push('/') : router.push('/signin');
+  }, [userInfo]);
 
   return (
     <UserContext.Provider value={{ user: userInfo, setUser: setUserInfo }}>
