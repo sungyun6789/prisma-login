@@ -15,6 +15,12 @@ export const Main = styled.main`
     margin-top: 30px;
     cursor: pointer;
   }
+
+  h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 70px;
+  }
 `;
 
 export const Input = styled.input`

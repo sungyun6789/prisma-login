@@ -3,10 +3,13 @@ import { useContext } from 'react';
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 
+import { Main } from '../components';
+
 import { UserContext } from './_app';
 
 const Index: NextPage = () => {
   const { user, setUser } = useContext(UserContext);
+
   const logout = async () => {
     await fetch('/api/signout', { method: 'POST' });
     setUser(undefined);
@@ -23,19 +26,6 @@ const Index: NextPage = () => {
 };
 
 export default Index;
-
-const Main = styled.main`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-
-  h1 {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 70px;
-  }
-`;
 
 const LogoutButton = styled.button`
   display: block;
