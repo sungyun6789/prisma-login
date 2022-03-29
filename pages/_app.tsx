@@ -18,15 +18,15 @@ interface ContextModel {
 export const UserContext = createContext<ContextModel>({ user: undefined, setUser: () => undefined });
 
 const app = ({ Component, pageProps }: AppProps) => {
-  const [userInfo, setUserInfo] = useState<UserModel>();
+  const [user, setUser] = useState<UserModel>();
   const router = useRouter();
 
   useEffect(() => {
-    userInfo ? router.push('/') : router.push('/signin');
-  }, [userInfo]);
+    user ? router.push('/') : router.push('/signin');
+  }, [user]);
 
   return (
-    <UserContext.Provider value={{ user: userInfo, setUser: setUserInfo }}>
+    <UserContext.Provider value={{ user, setUser }}>
       <GlobalStyle />
       <Component {...pageProps} />
     </UserContext.Provider>
