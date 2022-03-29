@@ -10,7 +10,7 @@ interface ResponseModel {
   reason?: string;
 }
 
-const SignIn: NextPage = () => {
+const SignUp: NextPage = () => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [passwordConfirm, setPasswordConfirm] = useState<string>();
@@ -56,4 +56,4 @@ const SignIn: NextPage = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
