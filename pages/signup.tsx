@@ -1,9 +1,10 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent } from 'react';
 
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
 import { ButtonWrapper, Input, Main } from '../components';
+import useText from '../hooks/useText';
 
 interface ResponseModel {
   success: boolean;
@@ -11,9 +12,9 @@ interface ResponseModel {
 }
 
 const SignUp: NextPage = () => {
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
-  const [passwordConfirm, setPasswordConfirm] = useState<string>();
+  const { text: email, setText: setEmail } = useText();
+  const { text: password, setText: setPassword } = useText();
+  const { text: passwordConfirm, setText: setPasswordConfirm } = useText();
   const router = useRouter();
 
   const signin = () => router.push('/signin');
@@ -44,9 +45,9 @@ const SignUp: NextPage = () => {
   return (
     <Main>
       <form onSubmit={handleSubmut}>
-        <Input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-        <Input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-        <Input type="password" onChange={(e) => setPasswordConfirm(e.target.value)} placeholder="Password Confirm" />
+        <Input type="email" onChange={setEmail} placeholder="Email" />
+        <Input type="password" onChange={setPassword} placeholder="Password" />
+        <Input type="password" onChange={setPasswordConfirm} placeholder="Password Confirm" />
         <ButtonWrapper>
           <button type="submit">회원가입</button>
         </ButtonWrapper>

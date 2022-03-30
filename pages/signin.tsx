@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
 import { ButtonWrapper, Input, Main } from '../components';
+import useText from '../hooks/useText';
 
 import { UserContext, UserModel } from './_app';
 
@@ -14,8 +15,8 @@ interface ResponseModel {
 }
 
 const SignIn: NextPage = () => {
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
+  const { text: email, setText: setEmail } = useText();
+  const { text: password, setText: setPassword } = useText();
   const { setUser } = useContext(UserContext);
   const router = useRouter();
 
@@ -53,8 +54,8 @@ const SignIn: NextPage = () => {
   return (
     <Main>
       <form onSubmit={handleSubmut}>
-        <Input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-        <Input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+        <Input type="email" onChange={setEmail} placeholder="Email" />
+        <Input type="password" onChange={setPassword} placeholder="Password" />
         <ButtonWrapper>
           <button type="submit">로그인</button>
         </ButtonWrapper>
