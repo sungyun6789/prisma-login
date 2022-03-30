@@ -15,13 +15,24 @@ const Index: NextPage = () => {
     setUser(undefined);
   };
 
+  const deleteAccount = async () => {
+    await fetch('/api/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: user!.id }),
+    });
+    setUser(undefined);
+  };
+
   return (
     <Main>
       <div>
         <h1>안녕하세요. {user?.email}</h1>
         <ButtonWrapper>
           <button onClick={logout}>로그아웃</button>
-          <button className="delete">회원탈퇴</button>
+          <button className="delete" onClick={deleteAccount}>
+            회원탈퇴
+          </button>
         </ButtonWrapper>
       </div>
     </Main>
