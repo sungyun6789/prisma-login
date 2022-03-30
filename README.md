@@ -1,1 +1,3 @@
-NextJS + Prisma + Postgresql
+## NextJS + Prisma + Postgresql
+
+### Account CRUD
