@@ -19,7 +19,10 @@ const Index: NextPage = () => {
     <Main>
       <div>
         <h1>안녕하세요. {user?.email}</h1>
-        <LogoutButton onClick={logout}>로그아웃</LogoutButton>
+        <ButtonWrapper>
+          <button onClick={logout}>로그아웃</button>
+          <button className="delete">회원탈퇴</button>
+        </ButtonWrapper>
       </div>
     </Main>
   );
@@ -27,16 +30,29 @@ const Index: NextPage = () => {
 
 export default Index;
 
-const LogoutButton = styled.button`
-  display: block;
-  width: 300px;
-  height: 50px;
+const ButtonWrapper = styled.section`
+  button {
+    display: block;
+    width: 300px;
+    height: 50px;
 
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
+    margin-top: 30px;
 
-  background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
 
-  font-size: 16px;
-  cursor: pointer;
+    background-color: white;
+
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .delete {
+    :hover {
+      color: white;
+      background-color: #ff1744;
+      border: none;
+    }
+  }
 `;
