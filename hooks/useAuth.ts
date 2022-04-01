@@ -10,8 +10,8 @@ const useAuth = () => {
   const router = useRouter();
 
   const getIsLoginUser = async () => {
-    const { success, user } = await fetch('/api/auth', { method: 'GET' }).then((response) => response.json());
-    success && user ? setUser(user) : router.push('/signin');
+    const data = await fetch('/api/auth', { method: 'GET' }).then((response) => response.json());
+    data.success ? setUser(data.user) : router.push('/signin');
   };
 
   useEffect(() => {
