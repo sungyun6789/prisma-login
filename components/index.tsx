@@ -5,7 +5,7 @@ export const Main = styled.main`
   justify-content: center;
   align-items: center;
 
-  width: 1000px;
+  width: 100vw;
   height: 100vh;
   margin: 0 auto;
 
@@ -19,7 +19,7 @@ export const Main = styled.main`
   h1 {
     text-align: center;
     font-size: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
   }
 `;
 
