@@ -11,9 +11,8 @@ const useAuth = () => {
 
   const getIsLoginUser = async () => {
     try {
-      const response = await fetch('/api/auth');
-      const data = await response.json();
-      data.success ? setUser(data.user) : router.push('/signin');
+      const { success, user } = await fetch('/api/auth', { method: 'GET' }).then((response) => response.json());
+      success ? setUser(user) : router.push('/signin');
     } catch (error) {
       console.log(error);
     }
